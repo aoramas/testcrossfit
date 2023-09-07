@@ -1,13 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const { config } = require("./config/config");
 
 dotenv.config();
 const app = express();
 
 const routerApi = require("./routes");
 
-const port = 3001;
+const port = config.dbPort;
 
 app.use(cors());
 app.use(express.json());
