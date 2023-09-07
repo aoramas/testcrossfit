@@ -1,4 +1,4 @@
-const { Model, DataTypes, Sequelize } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const EXAMPLE_TABLE = "persons";
 
@@ -11,7 +11,7 @@ class Example extends Model {
       timestamps: true,
     };
   }
-}XMLDocument
+}
 
 const ExampleSchema = {
   id: {
