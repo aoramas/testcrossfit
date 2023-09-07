@@ -2,7 +2,8 @@ const { models } = require("../libs/sequelize");
 
 const getUser = async (req, res) => {
     const rta = await models.User.findAll();
-    res.json(rta);
+    
+    res.status(200).json(rta);
 };
 
 const getUserById = async (req, res) => {

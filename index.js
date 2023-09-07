@@ -8,7 +8,7 @@ const app = express();
 
 const routerApi = require("./routes");
 
-const port = config.dbPort;
+const port = config.PORT;
 
 app.use(cors());
 app.use(express.json());
