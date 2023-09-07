@@ -11,7 +11,7 @@ const HorarioSchema = {
   },
   diaSemana: {
     allowNull: false,
-    type: DataTypes.VARCHAR,
+    type: DataTypes.STRING,
     field: "diaSemana",
   },
   horaIcinio: {

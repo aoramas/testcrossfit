@@ -5,7 +5,7 @@ const {
     createHorarios,
     updateHorarios,
     deleteHorarios,
-} = require("../services/user.service");
+} = require("../services/horarios.service");
 
 const router = express.Router();
 
