@@ -13,7 +13,26 @@ const getAdminById = async (req, res) => {
 
 const createAdmin = async (req, res) => {
   const { body } = req;
-  const rta = await models.Administrative.create(body);
+  const bodyUser = {
+    identificacion: body.identificacion,
+    nombres: body.nombres,
+    apellidos: body.apellidos,
+    username: body.username,
+    password: body.password,
+    email: body.email,
+    direccion: body.direccion,
+    telefono: body.telefono,
+    fechaInicio: body.fechaInicio,
+    estado: body.estado,
+    idRol: 1,
+  };
+  const rtaUser = await models.User.create(bodyUser);
+  const bodyAdmin = {
+    cargo: body.cargo,
+    idUsuario: rtaUser.id,
+  };
+  console.log(rtaUser);
+  const rta = await models.Administrative.create(bodyAdmin);
   res.json(rta);
 };
 
