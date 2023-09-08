@@ -13,6 +13,7 @@ const {
   WodEjercicios,
   WodEjerciciosSchema,
 } = require("./WodEjercicios.models");
+const { Booking, BookingSchema } = require("./Booking.model");
 
 function setupModels(sequelize) {
   //   nombreModelo.init(modeloSchema, nombreModelo.config(sequelize));
@@ -24,6 +25,7 @@ function setupModels(sequelize) {
   Promotion.init(PromotionSchema, Promotion.config(sequelize));
   Wod.init(WodSchema, Wod.config(sequelize));
   WodEjercicios.init(WodEjerciciosSchema, WodEjercicios.config(sequelize));
+  Booking.init(BookingSchema, Booking.config(sequelize));
 }
 
 module.exports = setupModels;
