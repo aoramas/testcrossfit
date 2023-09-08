@@ -42,4 +42,4 @@ const WodEjerciciosSchema = {
   },
 };
 
-module.exports = { WodEjercicios, WodEjerciciosSchema };
+module.exports = { WodEjercicios, WodEjerciciosSchema, WODEJERCICIOS_TABLE };

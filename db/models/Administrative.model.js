@@ -1,8 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
+const { USER_TABLE } = require("./User.model");
 
 const ADMIN_TABLE = "administrative";
 
 class Administrative extends Model {
+  static associate(models) {
+    this.belongsTo(models.User, {
+      foreignKey: "idUsuario",
+      as: "user",
+    });
+  }
   static config(sequelize) {
     return {
       sequelize,
@@ -29,6 +36,12 @@ const AdministrativeSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idUsuario",
+    references: {
+      model: USER_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
 };
 

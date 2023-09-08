@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const config = {
+  dialect: "postgres",
   env: process.env.NODE_ENV || "dev",
   dbUser: process.env.DB_USER,
   dbPassword: process.env.DB_PASSWORD,

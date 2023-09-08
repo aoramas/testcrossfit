@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 const { config } = require("../config/config");
-const setupModels = require("./../db/models/index");
+const setupModels = require("../db/models/index");
 const URL = `postgres://${config.dbUser}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 
 const sequelize = new Sequelize(URL, {

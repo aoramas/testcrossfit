@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "database": {
+      "name": "testcrossfit",
+      "host": "localhost",
+      "username": "postgres",
+      "password": "admin",
+      "dialect": "postgres"
+    }
+  },
+  "live": {
+    "database": {
+      "name": "testcrossfit",
+      "username": "postgres",
+      "password": "admin"
+    }
+  }
+}
