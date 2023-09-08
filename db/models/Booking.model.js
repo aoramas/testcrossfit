@@ -32,7 +32,7 @@ const BookingSchema = {
     },
   };
   
-  class booking extends Model {
+  class Booking extends Model {
     static associate(models) {}
     static config(sequelize) {
       return {
