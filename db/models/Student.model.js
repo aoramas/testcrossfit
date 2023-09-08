@@ -37,8 +37,8 @@ const StundetSchema = {
   },
   idMembresia: {
     allowNull: false,
-    type: DataTypes.STRING,
-    field: "telefono",
+    type: DataTypes.INTEGER,
+    field: "idMembresia",
     // foreignKey: true,
   },
   lesiones: {
@@ -47,14 +47,13 @@ const StundetSchema = {
     field: "lesiones",
   },
 };
-
 class Student extends Model {
   static associate(models) {}
 
   static config(sequelize) {
     return {
       sequelize,
-      tableName: STUDENT_TABLE,
+      tableName: STUDENT_TABLE_TABLE,
       modelName: "Student",
       timestamps: true,
     };
