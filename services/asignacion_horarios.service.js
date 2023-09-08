@@ -10,9 +10,19 @@ const getAsignacionHorariosById = async (req, res) => {
   const rta = await models.AsginacionHorarios.findByPk(id);
   res.json(rta);
 };
+const createAsignacionHorarios = async (req, res) => {
+  const { body } = req;
 
-const createAsignacionHorarios = async (req, res) => {};
+  const administrativo = await Administrativos.findOne({ id: body.idAdministrativos });
+  const horarios = await Horarios.findOne({id: body.idHorarios});
 
+  const asignacionHorarios = new AsignacionesHorarios({
+    administrativoId: administrativo.id,
+    horariosIds: horarios.map((horario) => horario.id),
+  });
+  await asignacionHorarios.create(body);
+  res.json(asignacionHorarios);
+};
 const updateAsignacionHorarios = async (req, res) => {
   const { body } = req;
   const { id } = req.params;
