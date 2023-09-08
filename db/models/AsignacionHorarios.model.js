@@ -1,5 +1,8 @@
 const { DataTypes, Model } = require("sequelize");
 
+const { ADMIN_TABLE} = require("./Administrative.model")
+const { SCHEDULE_TABLE} = require("./Horario.model")
+
 const AsignacionHorarios_TABLE = "asignacion_horarios";
 
 const AsignacionHorariosSchema = {
@@ -13,7 +16,12 @@ const AsignacionHorariosSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idAdministrativo",
-    // foreignKey: true,
+    references: {
+      model: ADMIN_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
   fecha: {
     allowNull: false,
@@ -24,10 +32,19 @@ const AsignacionHorariosSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idHorario",
+    references: {
+      model: SCHEDULE_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
 };
 class AsignacionHorarios extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.Administrativo, {foreignKey: 'idAdministrativo'});
+    this.belongsTo(models.Horario, {foreignKey: 'idHorario'});
+  }
   static config(sequelize) {
     return {
       sequelize,

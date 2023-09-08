@@ -13,7 +13,12 @@ const StudentSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idUsuario",
-    // foreignKey: true,
+    references: {
+      model: "USER_TABLE",
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
   edad: {
     allowNull: false,
@@ -38,8 +43,13 @@ const StudentSchema = {
   idMembresia: {
     allowNull: false,
     type: DataTypes.STRING,
-    field: "telefono",
-    // foreignKey: true,
+    field: "idMembresia",
+    references: {
+      model: "MEMBRESIA_TABLE",
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
   lesiones: {
     allowNull: false,
@@ -49,7 +59,10 @@ const StudentSchema = {
 };
 
 class Student extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.User, {foreignKey: 'idUsuario'});
+    this.belongsTo(models.Membresia, {foreignKey: 'idMembresia'});
+  }
   static config(sequelize) {
     return {
       sequelize,
