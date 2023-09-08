@@ -37,8 +37,8 @@ const StudentSchema = {
   },
   idMembresia: {
     allowNull: false,
-    type: DataTypes.INTEGER,
-    field: "idMembresia",
+    type: DataTypes.STRING,
+    field: "telefono",
     // foreignKey: true,
   },
   lesiones: {
@@ -47,6 +47,7 @@ const StudentSchema = {
     field: "lesiones",
   },
 };
+
 class Student extends Model {
   static associate(models) {}
   static config(sequelize) {

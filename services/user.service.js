@@ -2,7 +2,6 @@ const { models } = require("../libs/sequelize");
 
 const getUser = async (req, res) => {
     const rta = await models.User.findAll();
-    
     res.status(200).json(rta);
 };
 
@@ -21,6 +20,7 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const { body } = req;
     const { id } = req.params;
+    //usar save en lugar de update
     const rta = await models.User.update(body, { where: { id } });
     res.json(rta);
 };
