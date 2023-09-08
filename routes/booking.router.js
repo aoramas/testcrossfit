@@ -5,7 +5,7 @@ const {
     createBookings,
     updateBookings,
     deleteBookings,
-} = require("../services/horarios.service");
+} = require("../services/booking.service");
 
 const router = express.Router();
 

@@ -25,6 +25,11 @@ const WodSchema = {
     type: DataTypes.STRING,
     field: "name",
   },
+  idWodEjercicios: {
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    field: "idWodEjercicios",
+  },
   fecha: {
     allowNull: false,
     type: DataTypes.DATE,
