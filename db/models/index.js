@@ -10,6 +10,7 @@ const { Membership, MembershipSchema } = require("./Membership.model");
 const { Promotion, PromotionSchema } = require("./Promotion.model");
 const { Wod, WodSchema } = require("./Wod.model");
 const { Booking, BookingSchema } = require("./Booking.model");
+const {Rol, RolSchema} = require("./Rol.model");
 
 function setupModels(sequelize) {
   //   nombreModelo.init(modeloSchema, nombreModelo.config(sequelize));
@@ -21,6 +22,7 @@ function setupModels(sequelize) {
   Promotion.init(PromotionSchema, Promotion.config(sequelize));
   Wod.init(WodSchema, Wod.config(sequelize));
   Booking.init(BookingSchema, Booking.config(sequelize));
+  Rol.init(RolSchema, Rol.config(sequelize));
 }
 
 module.exports = setupModels;

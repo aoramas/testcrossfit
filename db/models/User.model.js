@@ -63,11 +63,17 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idRol",
+    foreignKey: true,
   }
 };
 
 class User extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.Rol, {
+      foreignKey: "idRol",
+      as: "rol",
+    });
+  }
 
   static config(sequelize) {
     return {
