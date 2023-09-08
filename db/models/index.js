@@ -30,6 +30,7 @@ function setupModels(sequelize) {
   ///////
   User.associate(sequelize.models);
   Membership.associate(sequelize.models);
+  Administrative.associate(sequelize.models);
 }
 
 module.exports = setupModels;
