@@ -1,11 +1,20 @@
 // const { nombreModelo, modeloSchema } = require("./person.model");
 const { User, UserSchema } = require("./User.model");
-const { Administrative, AdministrativeSchema } = require("./Administrative.model");
+const {
+  Administrative,
+  AdministrativeSchema,
+} = require("./Administrative.model");
 const { Student, StudentSchema } = require("./Student.model");
 const { Horario, HorarioSchema } = require("./Horario.model");
 const { Membership, MembershipSchema } = require("./Membership.model");
 const { Promotion, PromotionSchema } = require("./Promotion.model");
 const { AsignacionHorarios, AsignacionHorariosSchema } = require("./AsignacionHorarios.model");
+const { Wod, WodSchema } = require("./Wod.model");
+const {
+  WodEjercicios,
+  WodEjerciciosSchema,
+} = require("./WodEjercicios.models");
+const { Booking, BookingSchema } = require("./Booking.model");
 
 function setupModels(sequelize) {
   //   nombreModelo.init(modeloSchema, nombreModelo.config(sequelize));
@@ -16,6 +25,9 @@ function setupModels(sequelize) {
   Membership.init(MembershipSchema, Membership.config(sequelize));
   Promotion.init(PromotionSchema, Promotion.config(sequelize));
   AsignacionHorarios.init(AsignacionHorariosSchema, AsignacionHorarios.config(sequelize));
+  Wod.init(WodSchema, Wod.config(sequelize));
+  WodEjercicios.init(WodEjerciciosSchema, WodEjercicios.config(sequelize));
+  Booking.init(BookingSchema, Booking.config(sequelize));
 }
 
 module.exports = setupModels;
