@@ -75,7 +75,7 @@ const UserSchema = {
 class User extends Model {
   
   static associate(models) {
-    this.belongsTo(models.Rol, {as: 'rol'});
+    this.belongsTo(models.Rol, {foreignKey: 'idRol'});
   }
 
   static config(sequelize) {

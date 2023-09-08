@@ -18,7 +18,7 @@ const {
   WodEjerciciosSchema,
 } = require("./WodEjercicios.models");
 const { Booking, BookingSchema } = require("./Booking.model");
-const {Rol, RolSchema} = require("./Rol.model");
+const { Rol, RolSchema } = require("./Rol.model");
 const { Exercises, ExercisesSchema } = require("./Exercise.model");
 
 function setupModels(sequelize) {
@@ -37,8 +37,10 @@ function setupModels(sequelize) {
   WodEjercicios.init(WodEjerciciosSchema, WodEjercicios.config(sequelize));
   Booking.init(BookingSchema, Booking.config(sequelize));
   Rol.init(RolSchema, Rol.config(sequelize));
-  User.associate(sequelize.models);
   Exercises.init(ExercisesSchema, Exercises.config(sequelize));
+
+  ///////
+  User.associate(sequelize.models);
 }
 
 module.exports = setupModels;
