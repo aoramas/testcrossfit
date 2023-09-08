@@ -1,6 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 
-const PROMOTION_TABLE = "promotions";
+const PROMOTION_TABLE = "promotion";
 
 const PromotionSchema = {
   id: {
