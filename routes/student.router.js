@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-    getStudent,
-    getStudentById,
-    createStudent,
-    updateStudent,
-    deleteStudent,
+  getStudent,
+  getStudentById,
+  createStudent,
+  updateStudent,
+  deleteStudent,
 } = require("../services/student.service");
 const router = express.Router();
 
@@ -15,6 +15,3 @@ router.put("/:id", updateStudent);
 router.delete("/:id", deleteStudent);
 
 module.exports = router;
-
-
-
