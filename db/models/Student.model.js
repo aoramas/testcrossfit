@@ -2,7 +2,7 @@ const { DataTypes, Model } = require("sequelize");
 
 const STUDENT_TABLE = "student";
 
-const StundetSchema = {
+const StudetSchema = {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -53,11 +53,11 @@ class Student extends Model {
   static config(sequelize) {
     return {
       sequelize,
-      tableName: STUDENT_TABLE_TABLE,
+      tableName: STUDENT_TABLE,
       modelName: "Student",
       timestamps: true,
     };
   }
 }
 
-module.exports = { STUDENT_TABLE, StundetSchema, Student };
+module.exports = { STUDENT_TABLE, StudetSchema, Student };
