@@ -24,7 +24,7 @@ const createAdmin = async (req, res) => {
     telefono: body.telefono,
     fechaInicio: body.fechaInicio,
     estado: body.estado,
-    idRol: 1,
+    idRol: body.idRol,
   };
   const rtaUser = await models.User.create(bodyUser);
   const bodyAdmin = {
