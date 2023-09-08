@@ -1,5 +1,6 @@
 const { DataTypes, Model  } = require("sequelize");
 
+const PERMISSIONTYPE_TABLE = "permissiontypes";
 const ROL_TABLE = "roles";
 
 const RolSchema = {
@@ -18,12 +19,19 @@ const RolSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idTipoPermiso",
-    foreignKey: true,
+    references: {
+      model: PERMISSIONTYPE_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",  
   },
 }; 
 
 class Rol extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.Permission, {foreignKey: 'idTipoPermiso'});
+  }
 
   static config(sequelize) {
     return {

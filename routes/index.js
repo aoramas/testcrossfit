@@ -11,6 +11,7 @@ const horarioRouter = require("./horarios.router");
 const bookingRouter = require("./booking.router");
 const rolRouter = require("./rol.router");
 const exercisesRouter = require("./exercises.router");
+const permissionTypeRouter = require("./permission_type.router");
 // const elementRouter = require("./element.router");
 
 function routerApi(app) {
@@ -28,6 +29,7 @@ function routerApi(app) {
   router.use("/booking", bookingRouter);
   router.use("/rol", rolRouter);
   router.use("/exercises", exercisesRouter);
+  router.use("/permission_type", permissionTypeRouter);
   //   router.use("/persons", elementRouter);
 }
 

@@ -1,5 +1,6 @@
 const { DataTypes, Model  } = require("sequelize");
 
+const PROMOTION_TABLE = "promotion"
 const MEMBERSHIP_TABLE = "membership";
 
 const MembershipSchema = {
@@ -13,6 +14,12 @@ const MembershipSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idPromocion",
+    references: {
+      model: PROMOTION_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",  
   },
   precio: {
     allowNull: false,
@@ -37,7 +44,9 @@ const MembershipSchema = {
 };
 
 class Membership extends Model {
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.Promotion, {foreignKey: 'idPromocion'});
+  }
 
   static config(sequelize) {
     return {
