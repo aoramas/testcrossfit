@@ -13,8 +13,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable(ADMIN_TABLE);
   },
-
-  // async up (queryInterface, Sequelize) {
-  //   await queryInterface.createTable(ADMIN_TABLE, AdministrativeSchema)
-  // },
 };

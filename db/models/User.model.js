@@ -1,6 +1,6 @@
-const { DataTypes, Model  } = require("sequelize");
+const { DataTypes, Model } = require("sequelize");
 const ROL_TABLE = "roles";
-const USER_TABLE = "users";
+const USER_TABLE = "user";
 
 const UserSchema = {
   id: {
@@ -69,13 +69,12 @@ const UserSchema = {
     },
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
-  }
+  },
 };
 
 class User extends Model {
-  
   static associate(models) {
-    this.belongsTo(models.Rol, {foreignKey: 'idRol'});
+    this.belongsTo(models.Rol, { foreignKey: "idRol" });
   }
 
   static config(sequelize) {
@@ -89,3 +88,5 @@ class User extends Model {
 }
 
 module.exports = { USER_TABLE, UserSchema, User };
+
+//20230908172352-create-administrative
