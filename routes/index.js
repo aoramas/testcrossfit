@@ -5,7 +5,8 @@ const studentRouter = require("./student.router");
 const membershipRouter = require("./membership.router");
 const PromotionRouter = require("./promotion.router");
 const wodRouter = require("./wod.router");
-const horarioRouter = require("./horarios.router")
+const horarioRouter = require("./horarios.router");
+const bookingRouter = require("./booking.router");
 // const elementRouter = require("./element.router");
 
 function routerApi(app) {
@@ -18,6 +19,7 @@ function routerApi(app) {
   router.use("/promotion", PromotionRouter);
   router.use("/wod", wodRouter);
   router.use("/horario", horarioRouter);
+  router.use("/booking", bookingRouter);
   //   router.use("/persons", elementRouter);
 }
 
