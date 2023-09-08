@@ -9,11 +9,6 @@ const RolSchema = {
     autoIncrement: true,
     primaryKey: true,
   },
-  idPermisos: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-    field: "idPermisos",
-  },
   nombre: {
     allowNull: false,
     type: DataTypes.STRING,
@@ -25,12 +20,10 @@ const RolSchema = {
     field: "idTipoPermiso",
     foreignKey: true,
   },
-};
+}; 
 
 class Rol extends Model {
-  static associate(models) {
-
-  }
+  static associate(models) {}
 
   static config(sequelize) {
     return {

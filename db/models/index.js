@@ -30,6 +30,7 @@ function setupModels(sequelize) {
   WodEjercicios.init(WodEjerciciosSchema, WodEjercicios.config(sequelize));
   Booking.init(BookingSchema, Booking.config(sequelize));
   Rol.init(RolSchema, Rol.config(sequelize));
+  User.associate(sequelize.models);
 }
 
 module.exports = setupModels;

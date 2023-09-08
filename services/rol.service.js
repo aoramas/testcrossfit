@@ -1,4 +1,3 @@
-
 const { models } = require("../libs/sequelize");
 
 const getRol = async (req, res) => {
