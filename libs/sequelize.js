@@ -9,7 +9,16 @@ const sequelize = new Sequelize(URL, {
   dialect: "postgres",
 });
 
-sequelize.sync();
+// Ejecuta las migraciones automáticamente al iniciar la aplicación
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("Migraciones completadas");
+  })
+  .catch((error) => {
+    console.error("Error al ejecutar migraciones:", error);
+  });
+
 setupModels(sequelize);
 
 module.exports = sequelize;
