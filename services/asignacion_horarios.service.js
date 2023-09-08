@@ -11,7 +11,19 @@ const getAsignacionHorariosById = async (req, res) => {
   res.json(rta);
 };
 
-const createAsignacionHorarios = async (req, res) => {};
+const createAsignacionHorarios = async (req, res) => {
+  const { body } = req;
+
+  const administrativo = await Administrativos.findOne({ id: body.idAdministrativos });
+  const horarios = await Horarios.find({id: body.idHorarios});
+
+  const asignacionHorarios = new AsignacionesHorarios({
+    administrativoId: administrativo.id,
+    horariosIds: horarios.map((horario) => horario.id),
+  });
+  await asignacionHorarios.create(body);
+  res.json(asignacionHorarios);
+};
 
 const updateAsignacionHorarios = async (req, res) => {
   const { body } = req;
