@@ -1,8 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
+const { EXERCISES_TABLE } = require("./Exercise.model");
 
 const WODEJERCICIOS_TABLE = "wodEjercicios";
 
 class WodEjercicios extends Model {
+  static associate(models) {
+    this.belongsTo(models.Exercises, { foreignKey: "idEjercicio" });
+  }
   static config(sequelize) {
     return {
       sequelize,
@@ -24,6 +28,12 @@ const WodEjerciciosSchema = {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: "idEjercicio",
+    reference: {
+      model: EXERCISES_TABLE,
+      key: "id",
+    },
+    onUpdate: "CASCADE",
+    onDelete: "SET NULL",
   },
   fecha: {
     allowNull: false,

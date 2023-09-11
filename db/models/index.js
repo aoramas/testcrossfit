@@ -43,6 +43,9 @@ function setupModels(sequelize) {
   User.associate(sequelize.models);
   Administrative.associate(sequelize.models);
   Membership.associate(sequelize.models);
+  WodEjercicios.associate(sequelize.models);
+  Wod.associate(sequelize.models);
+  Booking.associate(sequelize.models);
 }
 
 module.exports = setupModels;
