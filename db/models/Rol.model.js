@@ -1,6 +1,6 @@
 const { DataTypes, Model  } = require("sequelize");
 
-const PERMISSIONTYPE_TABLE = "permissiontypes";
+const { PERMISSIONTYPE_TABLE } = require("./PermissionType.model");
 const ROL_TABLE = "roles";
 
 const RolSchema = {

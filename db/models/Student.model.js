@@ -1,6 +1,9 @@
 const { DataTypes, Model } = require("sequelize");
 
 const STUDENT_TABLE = "student";
+const { MEMBERSHIP_TABLE } = require("./Membership.model");
+const { USER_TABLE } = require("./User.model");
+
 
 const StudentSchema = {
   id: {
@@ -14,7 +17,7 @@ const StudentSchema = {
     type: DataTypes.INTEGER,
     field: "idUsuario",
     references: {
-      model: "USER_TABLE",
+      model: USER_TABLE,
       key: "id",
     },
     onUpdate: "CASCADE",
@@ -42,10 +45,10 @@ const StudentSchema = {
   },
   idMembresia: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     field: "idMembresia",
     references: {
-      model: "MEMBRESIA_TABLE",
+      model: MEMBERSHIP_TABLE,
       key: "id",
     },
     onUpdate: "CASCADE",
