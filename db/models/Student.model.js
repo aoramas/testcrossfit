@@ -59,6 +59,12 @@ const StudentSchema = {
     type: DataTypes.STRING,
     field: "lesiones",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 class Student extends Model {

@@ -31,10 +31,11 @@ const ExercisesSchema = {
     type: DataTypes.STRING,
     field: "name",
   },
-  state: {
+  estado: {
     allowNull: false,
-    type: DataTypes.STRING,
-    field: "state",
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   },
 };
 

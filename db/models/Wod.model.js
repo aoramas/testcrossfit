@@ -31,6 +31,12 @@ const WodSchema = {
     type: DataTypes.DATE,
     field: "fecha",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 class Wod extends Model {

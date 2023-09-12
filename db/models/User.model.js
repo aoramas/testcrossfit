@@ -54,12 +54,6 @@ const UserSchema = {
     type: DataTypes.DATE,
     field: "fechaInicio",
   },
-  estado: {
-    allowNull: false,
-    type: DataTypes.BOOLEAN,
-    field: "estado",
-    defaultValue: true,
-  },
   idRol: {
     allowNull: false,
     type: DataTypes.INTEGER,
@@ -70,6 +64,12 @@ const UserSchema = {
     },
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
+  },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   },
 };
 

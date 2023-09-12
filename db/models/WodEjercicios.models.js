@@ -56,6 +56,12 @@ const WodEjerciciosSchema = {
     type: DataTypes.INTEGER,
     field: "sets",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 module.exports = { WodEjercicios, WodEjerciciosSchema, WODEJERCICIOS_TABLE };

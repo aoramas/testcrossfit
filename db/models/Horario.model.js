@@ -24,6 +24,12 @@ const HorarioSchema = {
     type: DataTypes.TIME,
     field: "horaFin",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 class Horario extends Model {

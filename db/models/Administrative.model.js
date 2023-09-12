@@ -43,6 +43,12 @@ const AdministrativeSchema = {
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 module.exports = { ADMIN_TABLE, AdministrativeSchema, Administrative };

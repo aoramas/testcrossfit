@@ -43,6 +43,12 @@ const BookingSchema = {
     type: DataTypes.STRING,
     field: "description",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 class Booking extends Model {

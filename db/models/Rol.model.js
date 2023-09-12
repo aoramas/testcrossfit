@@ -26,6 +26,12 @@ const RolSchema = {
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 
 class Rol extends Model {

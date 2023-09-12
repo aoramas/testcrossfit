@@ -31,15 +31,16 @@ const MembershipSchema = {
     type: DataTypes.BOOLEAN,
     field: "activa",
   },
-  estado: {
-    allowNull: false,
-    type: DataTypes.BOOLEAN,
-    field: "estado",
-  },
   fechaVencimiento: {
     allowNull: false,
     type: DataTypes.DATE,
     field: "fechaVencimiento",
+  },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   }
 };
 
