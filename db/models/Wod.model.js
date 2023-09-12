@@ -3,20 +3,6 @@ const { WODEJERCICIOS_TABLE } = require("./WodEjercicios.models");
 
 const WOD_TABLE = "wod";
 
-class Wod extends Model {
-  static associate(models) {
-    this.belongsTo(models.WodEjercicios, { foreignKey: "idWodEjercicios" });
-  }
-  static config(sequelize) {
-    return {
-      sequelize,
-      tableName: WOD_TABLE,
-      modelName: "Wod",
-      timestamps: true,
-    };
-  }
-}
-
 const WodSchema = {
   id: {
     allowNull: false,
@@ -46,5 +32,21 @@ const WodSchema = {
     field: "fecha",
   },
 };
+
+class Wod extends Model {
+  static associate(models) {
+    this.hasMany(models.WodEjercicios, {
+      foreignKey: "idWodEjercicios",
+    });
+  }
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: WOD_TABLE,
+      modelName: "Wod",
+      timestamps: true,
+    };
+  }
+}
 
 module.exports = { Wod, WodSchema, WOD_TABLE };

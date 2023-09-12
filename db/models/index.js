@@ -40,11 +40,15 @@ function setupModels(sequelize) {
   PermissionType.init(PermissionSchema, PermissionType.config(sequelize));
 
   ///////
+
+  Rol.associate(sequelize.models);
+  PermissionType.associate(sequelize.models);
   User.associate(sequelize.models);
   Administrative.associate(sequelize.models);
   Membership.associate(sequelize.models);
-  WodEjercicios.associate(sequelize.models);
   Wod.associate(sequelize.models);
+  WodEjercicios.associate(sequelize.models);
+  Exercises.associate(sequelize.models);
   Booking.associate(sequelize.models);
 }
 

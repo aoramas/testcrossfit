@@ -1,4 +1,4 @@
-const { DataTypes, Model  } = require("sequelize");
+const { DataTypes, Model } = require("sequelize");
 
 const { PERMISSIONTYPE_TABLE } = require("./PermissionType.model");
 const ROL_TABLE = "roles";
@@ -24,13 +24,17 @@ const RolSchema = {
       key: "id",
     },
     onUpdate: "CASCADE",
-    onDelete: "SET NULL",  
+    onDelete: "SET NULL",
   },
-}; 
+};
 
 class Rol extends Model {
   static associate(models) {
-    this.belongsTo(models.Permission, {foreignKey: 'idTipoPermiso'});
+    this.hasMany(models.PermissionType, {
+      foreignKey: "id",
+      targetKey: "idTipoPermiso",
+    });
+    this.belongsTo(models.User, { foreignKey: "id", targetKey: "idRol" });
   }
 
   static config(sequelize) {

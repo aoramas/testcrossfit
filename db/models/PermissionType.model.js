@@ -1,4 +1,4 @@
-const { DataTypes, Model  } = require("sequelize");
+const { DataTypes, Model } = require("sequelize");
 
 const PERMISSIONTYPE_TABLE = "permissiontypes";
 
@@ -23,12 +23,16 @@ const PermissionSchema = {
     allowNull: false,
     type: DataTypes.BOOLEAN,
     field: "estado",
-  }
+  },
 };
 
 class PermissionType extends Model {
-  
-  static associate(models) {}
+  static associate(models) {
+    this.belongsTo(models.Rol, {
+      targetKey: "idTipoPermiso",
+      foreignKey: "id",
+    });
+  }
 
   static config(sequelize) {
     return {

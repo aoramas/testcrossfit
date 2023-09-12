@@ -3,6 +3,12 @@ const { Model, DataTypes } = require("sequelize");
 const EXERCISES_TABLE = "exercises";
 
 class Exercises extends Model {
+  static associate(models) {
+    this.belongsTo(models.WodEjercicios, {
+      foreignKey: "id",
+      targetKey: "idEjercicio",
+    });
+  }
   static config(sequelize) {
     return {
       sequelize,

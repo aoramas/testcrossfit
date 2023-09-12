@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
-const ROL_TABLE = "roles";
+const { ROL_TABLE } = require("./Rol.model");
 const USER_TABLE = "user";
 
 const UserSchema = {
@@ -58,6 +58,7 @@ const UserSchema = {
     allowNull: false,
     type: DataTypes.BOOLEAN,
     field: "estado",
+    defaultValue: true,
   },
   idRol: {
     allowNull: false,
@@ -74,7 +75,7 @@ const UserSchema = {
 
 class User extends Model {
   static associate(models) {
-    this.belongsTo(models.Rol, { foreignKey: "idRol" });
+    this.hasMany(models.Rol, { foreignKey: "id", targetKey: "idRol" });
   }
 
   static config(sequelize) {
