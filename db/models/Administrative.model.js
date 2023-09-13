@@ -30,7 +30,7 @@ const AdministrativeSchema = {
   cargo: {
     allowNull: false,
     type: DataTypes.STRING,
-    field: "name",
+    field: "cargo",
   },
   idUsuario: {
     allowNull: false,
