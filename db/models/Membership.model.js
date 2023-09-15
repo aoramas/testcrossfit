@@ -1,6 +1,6 @@
 const { DataTypes, Model  } = require("sequelize");
 
-const PROMOTION_TABLE = "promotion"
+// const PROMOTION_TABLE = "promotion"
 const MEMBERSHIP_TABLE = "membership";
 
 const MembershipSchema = {
@@ -10,16 +10,26 @@ const MembershipSchema = {
     autoIncrement: true,
     primaryKey: true,
   },
-  idPromocion: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-    field: "idPromocion",
-    references: {
-      model: PROMOTION_TABLE,
-      key: "id",
-    },
-    onUpdate: "CASCADE",
-    onDelete: "SET NULL",  
+  // idPromocion: {
+  //   allowNull: false,
+  //   type: DataTypes.INTEGER,
+  //   field: "idPromocion",
+  //   references: {
+  //     model: PROMOTION_TABLE,
+  //     key: "id",
+  //   },
+  //   onUpdate: "CASCADE",
+  //   onDelete: "SET NULL",  
+  // },
+  promocionName: {
+    allowNull: true,
+    type: DataTypes.STRING,
+    field: "promocionName",
+  },
+  descuento: {
+    allowNull: true,
+    type: DataTypes.FLOAT,
+    field: "descuento",
   },
   precio: {
     allowNull: false,
@@ -31,21 +41,22 @@ const MembershipSchema = {
     type: DataTypes.BOOLEAN,
     field: "activa",
   },
-  estado: {
-    allowNull: false,
-    type: DataTypes.BOOLEAN,
-    field: "estado",
-  },
   fechaVencimiento: {
     allowNull: false,
     type: DataTypes.DATE,
     field: "fechaVencimiento",
+  },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   }
 };
 
 class Membership extends Model {
   static associate(models) {
-    this.belongsTo(models.Promotion, {foreignKey: 'idPromocion'});
+    // this.belongsTo(models.Promotion, {foreignKey: 'idPromocion'});
   }
 
   static config(sequelize) {

@@ -47,10 +47,11 @@ const WodEjerciciosSchema = {
     type: DataTypes.INTEGER,
     field: "repeticiones",
   },
-  sets: {
+  estado: {
     allowNull: false,
-    type: DataTypes.INTEGER,
-    field: "sets",
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   },
 };
 

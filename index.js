@@ -13,9 +13,7 @@ const port = config.PORT;
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Backend con NodeJS - Express + CRUD API REST + postgres");
-});
+app.use('/docs',express.static(__dirname + '/doc'));
 
 routerApi(app);
 

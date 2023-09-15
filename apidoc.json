@@ -1,0 +1,7 @@
+{
+    "name": "testcrossfit API",
+    "version": "0.1.0",
+    "description": "Documentación básica para la API de testcrossfit",
+    "title": "Custom apiDoc browser title",
+    "url" : "https://localhost:3000/api/v1"
+  }

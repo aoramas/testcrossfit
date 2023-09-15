@@ -39,6 +39,12 @@ const AsignacionHorariosSchema = {
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
   },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
+  },
 };
 class AsignacionHorarios extends Model {
   static associate(models) {

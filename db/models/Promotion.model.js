@@ -23,6 +23,7 @@ const PromotionSchema = {
     allowNull: false,
     type: DataTypes.BOOLEAN,
     field: "estado",
+    defaultValue: true,
   },
 };
 

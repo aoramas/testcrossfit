@@ -30,7 +30,7 @@ const AdministrativeSchema = {
   cargo: {
     allowNull: false,
     type: DataTypes.STRING,
-    field: "name",
+    field: "cargo",
   },
   idUsuario: {
     allowNull: false,
@@ -42,6 +42,12 @@ const AdministrativeSchema = {
     },
     onUpdate: "CASCADE",
     onDelete: "SET NULL",
+  },
+  estado: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+    field: "estado",
+    defaultValue: true,
   },
 };
 

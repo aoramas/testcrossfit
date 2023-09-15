@@ -6,7 +6,7 @@ const {
 const { Student, StudentSchema } = require("./Student.model");
 const { Horario, HorarioSchema } = require("./Horario.model");
 const { Membership, MembershipSchema } = require("./Membership.model");
-const { Promotion, PromotionSchema } = require("./Promotion.model");
+// const { Promotion, PromotionSchema } = require("./Promotion.model");
 const {
   AsignacionHorarios,
   AsignacionHorariosSchema,
@@ -27,7 +27,7 @@ function setupModels(sequelize) {
   Student.init(StudentSchema, Student.config(sequelize));
   Horario.init(HorarioSchema, Horario.config(sequelize));
   Membership.init(MembershipSchema, Membership.config(sequelize));
-  Promotion.init(PromotionSchema, Promotion.config(sequelize));
+  // Promotion.init(PromotionSchema, Promotion.config(sequelize));
   AsignacionHorarios.init(
     AsignacionHorariosSchema,
     AsignacionHorarios.config(sequelize)

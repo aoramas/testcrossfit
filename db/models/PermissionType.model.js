@@ -23,6 +23,7 @@ const PermissionSchema = {
     allowNull: false,
     type: DataTypes.BOOLEAN,
     field: "estado",
+    defaultValue: true,
   },
 };
 
