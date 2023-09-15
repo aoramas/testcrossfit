@@ -5,12 +5,8 @@ const WODEJERCICIOS_TABLE = "wodEjercicios";
 
 class WodEjercicios extends Model {
   static associate(models) {
-    this.belongsTo(models.Wod, {
-      foreignKey: "id",
-      targetKey: "idWodEjercicios",
-    });
-    this.hasMany(models.Exercises, {
-      foreignKey: "idEjercicio",
+    this.hasMany(models.Wod, {
+      foreignKey: "idWodEjercicios",
     });
   }
   static config(sequelize) {

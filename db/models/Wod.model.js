@@ -15,17 +15,6 @@ const WodSchema = {
     type: DataTypes.STRING,
     field: "name",
   },
-  idWodEjercicios: {
-    allowNull: false,
-    type: DataTypes.INTEGER,
-    field: "idWodEjercicios",
-    reference: {
-      model: WODEJERCICIOS_TABLE,
-      key: "id",
-    },
-    onUpdate: "CASCADE",
-    onDelete: "SET NULL",
-  },
   fecha: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -35,7 +24,7 @@ const WodSchema = {
 
 class Wod extends Model {
   static associate(models) {
-    this.hasMany(models.WodEjercicios, {
+    this.belongsTo(models.WodEjercicios, {
       foreignKey: "idWodEjercicios",
     });
   }
