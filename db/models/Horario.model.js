@@ -3,12 +3,6 @@ const { DataTypes, Model  } = require("sequelize");
 const SCHEDULE_TABLE = "horarios";
 
 const HorarioSchema = {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
   diaSemana: {
     allowNull: false,
     type: DataTypes.STRING,
