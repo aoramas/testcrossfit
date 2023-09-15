@@ -7,11 +7,15 @@ const Horarios = sequelize.define("Horario", {
     primaryKey: true,
     autoIncrement: true,
   },
-  dia: {
+  diaSemana: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  hora: {
+  horaInicio: {
+    type: DataTypes.TIME,
+    allowNull: false,
+  },
+  horaFin: {
     type: DataTypes.TIME,
     allowNull: false,
   },

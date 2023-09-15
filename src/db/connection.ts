@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(
-  "postgres://postgres:nintendo2020@localhost:5432/testcrossfit"
+  "postgres://postgres:admin@localhost:5432/hilitoapi"
 );
 
 export default sequelize;

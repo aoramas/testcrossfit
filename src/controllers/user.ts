@@ -23,7 +23,7 @@ const newUser = async (req: Request, res: Response) => {
       username: username,
     },
   });
-  if (user) {
+  if (!user) {
     return res.status(400).json({
       msg: `El usuario ${username} ya existe`,
     });
@@ -64,7 +64,7 @@ const loginUser = async (req: Request, res: Response) => {
     },
   });
   if (!user) {
-    return res.status(400).json({ msg: "Usuario incorrecto" });
+    return res.status(400).json({ msg: "El usuario ingresado no existe" });
   }
 
   const passwordValid = bcrypt.compare(password, user.password);

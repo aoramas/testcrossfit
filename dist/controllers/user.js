@@ -23,7 +23,7 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             username: username,
         },
     });
-    if (user) {
+    if (!user) {
         return res.status(400).json({
             msg: `El usuario ${username} ya existe`,
         });
@@ -63,7 +63,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         },
     });
     if (!user) {
-        return res.status(400).json({ msg: "Usuario incorrecto" });
+        return res.status(400).json({ msg: "El usuario ingresado no existe" });
     }
     const passwordValid = bcrypt_1.default.compare(password, user.password);
     if (!(yield passwordValid.valueOf())) {
