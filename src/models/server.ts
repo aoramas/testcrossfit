@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import routesHorario from "../routes/horarios";
 import routesUser from "../routes/user";
 import { Horarios } from "./horarios";
@@ -29,6 +30,7 @@ class Server {
 
   middlewares() {
     this.app.use(express.json());
+    this.app.use(cors());
   }
 
   async dbConnection() {
