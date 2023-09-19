@@ -18,7 +18,18 @@ const cors_1 = __importDefault(require("cors"));
 const horarios_1 = __importDefault(require("../routes/horarios"));
 const user_1 = __importDefault(require("../routes/user"));
 const horarios_2 = require("./horarios");
-const user_2 = require("./user");
+const Usuario_1 = require("./Usuario");
+const administrativo_1 = require("./administrativo");
+const asignacionHorarios_1 = require("./asignacionHorarios");
+const ejercicio_1 = require("./ejercicio");
+const estudiante_1 = require("./estudiante");
+const membresia_1 = require("./membresia");
+const promocion_1 = require("./promocion");
+const reservacion_1 = require("./reservacion");
+const rol_1 = require("./rol");
+const tipoPermiso_1 = require("./tipoPermiso");
+const wod_1 = require("./wod");
+const wodEjercicios_1 = require("./wodEjercicios");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -45,7 +56,18 @@ class Server {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield horarios_2.Horarios.sync({ alter: true });
-                yield user_2.User.sync({ alter: true });
+                yield Usuario_1.Usuario.sync({ alter: true });
+                yield administrativo_1.Administrativo.sync({ alter: true });
+                yield asignacionHorarios_1.AsignacionHorarios.sync({ alter: true });
+                yield ejercicio_1.Ejercicio.sync({ alter: true });
+                yield estudiante_1.Estudiante.sync({ alter: true });
+                yield membresia_1.Membresia.sync({ alter: true });
+                yield promocion_1.Promocion.sync({ alter: true });
+                yield reservacion_1.Reservacion.sync({ alter: true });
+                yield rol_1.Rol.sync({ alter: true });
+                yield tipoPermiso_1.TipoPermiso.sync({ alter: true });
+                yield wod_1.Wod.sync({ alter: true });
+                yield wodEjercicios_1.WodEjercicios.sync({ alter: true });
             }
             catch (error) { }
         });

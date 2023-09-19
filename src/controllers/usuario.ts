@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { User } from "../models/user";
+import { Usuario } from "../models/Usuario";
 import jwt from "jsonwebtoken";
 
-const newUser = async (req: Request, res: Response) => {
+const newUsuario = async (req: Request, res: Response) => {
   const {
     identificacion,
     nombres,
@@ -18,12 +18,12 @@ const newUser = async (req: Request, res: Response) => {
     estado,
   } = req.body;
 
-  const user = User.findOne({
+  const usuario = Usuario.findOne({
     where: {
       username: username,
     },
   });
-  if (!user) {
+  if (!usuario) {
     return res.status(400).json({
       msg: `El usuario ${username} ya existe`,
     });
@@ -32,7 +32,7 @@ const newUser = async (req: Request, res: Response) => {
   const hashPassword = await bcrypt.hash(password, 10);
 
   try {
-    await User.create({
+    await Usuario.create({
       identificacion,
       nombres,
       apellidos,
@@ -56,25 +56,25 @@ const newUser = async (req: Request, res: Response) => {
   }
 };
 
-const loginUser = async (req: Request, res: Response) => {
+const loginUsuario = async (req: Request, res: Response) => {
   const { username, password } = req.body;
-  const user: any = await User.findOne({
+  const usuario: any = await Usuario.findOne({
     where: {
       username: username,
     },
   });
-  if (!user) {
+  if (!usuario) {
     return res.status(400).json({ msg: "El usuario ingresado no existe" });
   }
 
-  const passwordValid = bcrypt.compare(password, user.password);
+  const passwordValid = bcrypt.compare(password, usuario.password);
   if (!(await passwordValid.valueOf())) {
     return res.status(400).json({ msg: "contraseña incorrecto" });
   }
 
-  const token = jwt.sign({ user: user }, "secret");
+  const token = jwt.sign({ user: usuario }, "secret");
 
   return res.json({ userToken: token });
 };
 
-export { newUser, loginUser };
+export { newUsuario, loginUsuario };

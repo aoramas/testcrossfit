@@ -12,25 +12,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginUser = exports.newUser = void 0;
+exports.loginUsuario = exports.newUsuario = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const user_1 = require("../models/user");
+const Usuario_1 = require("../models/Usuario");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const newUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { identificacion, nombres, apellidos, username, password, email, telefono, direccion, fechaInicio, idRol, estado, } = req.body;
-    const user = user_1.User.findOne({
+    const usuario = Usuario_1.Usuario.findOne({
         where: {
             username: username,
         },
     });
-    if (!user) {
+    if (!usuario) {
         return res.status(400).json({
             msg: `El usuario ${username} ya existe`,
         });
     }
     const hashPassword = yield bcrypt_1.default.hash(password, 10);
     try {
-        yield user_1.User.create({
+        yield Usuario_1.Usuario.create({
             identificacion,
             nombres,
             apellidos,
@@ -54,22 +54,22 @@ const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
 });
-exports.newUser = newUser;
-const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.newUsuario = newUsuario;
+const loginUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
-    const user = yield user_1.User.findOne({
+    const usuario = yield Usuario_1.Usuario.findOne({
         where: {
             username: username,
         },
     });
-    if (!user) {
+    if (!usuario) {
         return res.status(400).json({ msg: "El usuario ingresado no existe" });
     }
-    const passwordValid = bcrypt_1.default.compare(password, user.password);
+    const passwordValid = bcrypt_1.default.compare(password, usuario.password);
     if (!(yield passwordValid.valueOf())) {
         return res.status(400).json({ msg: "contraseña incorrecto" });
     }
-    const token = jsonwebtoken_1.default.sign({ user: user }, "secret");
+    const token = jsonwebtoken_1.default.sign({ user: usuario }, "secret");
     return res.json({ userToken: token });
 });
-exports.loginUser = loginUser;
+exports.loginUsuario = loginUsuario;
